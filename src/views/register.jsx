@@ -1,8 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import logo from "../assets/images/logo-light.png";
 import loginImg from '../assets/images/login-img.png';
+import { useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
+import VARIABLES from "../../environmentVariables";
 
 const Register = () => {
+  const [userDetails,setUserDetails]=useState({
+    email:'',
+    username:'',
+    password:''
+  });
+  const navigate=useNavigate();
+  const handleRegister=async (e)=>{
+    e.preventDefault();
+    try{
+      const response=await axios.post(`${VARIABLES.API_URL_REMOTE}/user-register`,userDetails);
+      if(response.status===201){
+        toast.success("User Registered Successfully");
+        navigate('/login');
+      }
+
+    }catch(error){
+      console.log(error);
+      toast.error("Failed to register");
+    }
+  }
+  const handleInputChange=(e)=>{
+    setUserDetails({...userDetails,[e.target.name]:e.target.value})
+  }
   return (
     <div className="login row m-0 p-0 pt-5 ps-3 pe-3">
     <div className="col-lg-4 d-lg-flex d-none position-relative ">
@@ -19,7 +46,7 @@ const Register = () => {
       <p className=" fs-6 m-0 p-0 fw-medium mt-2 text-center text-secondary ">
         Get your first WebChat account now
       </p>
-      <form action="" className="col-8 mt-5">
+      <form action="/user-register" method="post" onSubmit={handleRegister} className="col-8 mt-5">
         <div class="mb-3">
           <label for="email" class="form-label">
             Email
@@ -29,6 +56,9 @@ const Register = () => {
             class="form-control"
             id="email"
             placeholder="hibbanrahmanhyt@gmail.com"
+            name="email"
+            onChange={handleInputChange}
+            value={userDetails.email}
           />
         </div>
         <div class="mb-3">
@@ -40,6 +70,9 @@ const Register = () => {
             class="form-control"
             id="username"
             placeholder="Hibbanur-Rahman"
+            name="username"
+            onChange={handleInputChange}
+            value={userDetails.username}
           />
         </div>
         <div class="mb-3">
@@ -60,10 +93,13 @@ const Register = () => {
             class="form-control"
             id="password"
             placeholder="*******"
+            name="password"
+            onChange={handleInputChange}
+            value={userDetails.password}  
           />
         </div>
         <div className="row m-0 p-0 mt-5">
-          <button className="btn btn-ctm text-light">Register</button>
+          <button className="btn btn-ctm text-light" onClick={handleRegister}>Register</button>
         </div>
         <div className="row m-0 p-0 justify-content-center align-items-center mt-5">
 
