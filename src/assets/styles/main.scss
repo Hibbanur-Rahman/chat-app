@@ -30,3 +30,19 @@
 .btn-ctm{
     background-color: #4EAC6D !important;
 }
+
+.sidebar{
+    min-height: 100vh;
+    background-color: #2E2E2E !important;
+    i{
+        color: #c0bebe !important;
+        &:hover{
+            color: #4EAC6D !important;
+        }
+    }
+    // .profile-img{
+    //     position: absolute;
+
+    //     bottom: 20px !important;
+    // }
+}
