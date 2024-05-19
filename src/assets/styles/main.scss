@@ -30,19 +30,54 @@
 .btn-ctm{
     background-color: #4EAC6D !important;
 }
+ 
 
 .sidebar{
     min-height: 100vh;
     background-color: #2E2E2E !important;
-    i{
+    transition: all 0.3s ease-in-out;
+    .sidebar-i{
         color: #c0bebe !important;
+        transition: all 0.3s ease-in-out;
+
         &:hover{
             color: #4EAC6D !important;
+            transition: all 0.3s ease-in-out;
+
         }
     }
-    // .profile-img{
-    //     position: absolute;
+    .active{
+        color:#4EAC6D !important;
+        transition: all 0.3s ease-in-out;
 
-    //     bottom: 20px !important;
-    // }
+    }
+    
+}
+.dashboard-mobile{
+    transition: all 0.3s ease-in-out;
+
+    height: 100vh !important;
+    overflow-y: scroll;
+}
+.sidebar-mobile{
+    bottom: 0px !important;
+    background-color: #2E2E2E !important;
+    transition: all 0.3s ease-in-out;
+
+    .sidebar-i{
+        color: #c0bebe !important;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            color: #4EAC6D !important;
+            transition: all 0.3s ease-in-out;
+
+        }
+    }
+    .active{
+        color:#4EAC6D !important;
+        transition: all 0.3s ease-in-out;
+
+    }
+    
 }

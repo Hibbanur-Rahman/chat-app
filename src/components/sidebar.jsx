@@ -1,29 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import ProfileAvatar from "../assets/images/profile-Avatar.svg";
 const Sidebar = () => {
+    const location = useLocation();
+
   return (
     <div className="sidebar col-1 m-0 p-0 pt-3 pb-3 d-flex flex-column  align-items-center justify-content-between ">
       <div className="m-0 p-0 row justify-content-center align-items-center">
-        <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="profile">
-          <i className=" fs-3 bi bi-chat-square-text"></i>
+        <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center" to="profile">
+          <i className={` sidebar-i fs-3 bi bi-chat-square-text active  `}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="profile">
-          <i className=" fs-3 bi bi-person-circle"></i>
+          <i className={`sidebar-i fs-3 bi bi-person-circle ${location.pathname==='/dashboard/profile'?'active':''}`}></i>
         </Link>
-        <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  text-decoration-none" to="chatList">
-          <i class="fs-3 las la-comments"></i>
+        <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  text-decoration-none " to="chatList">
+          <i class={` sidebar-i fs-3 las la-comments ${location.pathname==='/dashboard/chatList'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="contactList">
-          <i className=" fs-3 bi bi-person-lines-fill"></i>
+          <i className={`sidebar-i fs-3 bi bi-person-lines-fill ${location.pathname==='/dashboard/contactList'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="callList">
-          <i className=" fs-3 bi bi-telephone"></i>
+          <i className={`sidebar-i fs-3 bi bi-telephone ${location.pathname==='/dashboard/callList'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="bookmarks">
-          <i className=" fs-3 bi bi-bookmarks"></i>
+          <i className={`sidebar-i fs-3 bi bi-bookmarks ${location.pathname==='/dashboard/bookmarks'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="setting">
-          <i className=" fs-3 bi bi-gear"></i>
+          <i className={`sidebar-i fs-3 bi bi-gear ${location.pathname==='/dashboard/setting'?'active':''}`}></i>
         </Link>
       </div>
 

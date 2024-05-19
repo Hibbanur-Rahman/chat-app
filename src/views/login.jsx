@@ -49,7 +49,7 @@ const Login = () => {
         <p className=" fs-6 m-0 p-0 fw-medium mt-2 text-center text-secondary ">
           Sign in to continue to WebChat
         </p>
-        <form action="/user-login" method='post' onSubmit={handleLogin} className="col-8 mt-5">
+        <form action="/user-login" method='post' onSubmit={handleLogin} className="col-lg-8 col-11 mt-5">
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
               Email
