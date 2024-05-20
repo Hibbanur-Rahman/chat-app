@@ -92,10 +92,20 @@
 }
 
 .chat-container {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+
     height: 100vh !important;
     position: relative;
     background-image: url(../images/chat-bg.png);
-
+    overflow-y: scroll;
+    background-color: #f2f2f2 !important;
     .navBar {
         min-height: 80px !important;
         position: absolute;
@@ -108,12 +118,30 @@
         }
     }
 
-    .messages-container{
+    .messages-container {
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        overflow-y: scroll;
+        height: 90vh !important;
         padding-top: 80px !important;
-        .message-item-sender{
-            
+        padding-bottom: -80px !important;
+        .message-item {
+            background-color: #fff !important;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px #0f223a1f;
+        }
+        .time-message{
+            font-size: 10px !important;
         }
     }
+
     .send-box {
         position: absolute;
         bottom: 10px;
@@ -124,6 +152,7 @@
         i {
             cursor: pointer;
             transition: all 0.3s ease-in-out;
+
             &:hover {
                 color: #4EAC6D !important;
                 transition: all 0.3s ease-in-out;
@@ -134,6 +163,51 @@
             &:focus {
                 outline: none;
             }
+        }
+    }
+}
+
+.chatList{
+   
+    position: relative;
+    .chat-TopBar{
+        transition: all 0.3s ease-in-out;
+        height: 127px;
+        position: absolute;
+        background-color: #fff;
+        z-index: 2;
+        i{
+            &:hover {
+                color: #4EAC6D !important;
+                transition: all 0.3s ease-in-out;
+            } 
+        }
+        input{
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .direct-message-list{
+        padding-top: 120px !important;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+    
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+    
+        height: 97vh;
+        overflow-y: scroll;
+    }
+    .list-item{
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            background: #b8b7b726;
+            transition: all 0.3s ease-in-out;
         }
     }
 }
