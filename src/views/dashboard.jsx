@@ -15,7 +15,7 @@ const DashBoard = () => {
     <>
       <div className=" dashboard d-sm-flex d-none row m-0 p-0">
         <Sidebar />
-        <div className="col-4">
+        <div className="col-3">
           <Routes>
             <Route path="chatList" element={<ChatList />} />
             <Route path="contactList" element={<ContactList />} />
@@ -26,7 +26,7 @@ const DashBoard = () => {
             <Route path="/" element={<ChatList />} />
           </Routes>
         </div>
-        <div className="col-7">
+        <div className="col-8">
           <ChatContainer />
         </div>
       </div>
