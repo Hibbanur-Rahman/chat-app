@@ -49,6 +49,25 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
+        
+        <div className="list-item row m-0 p-0 pb-2 pt-2">
+            <div className="col-2">
+
+          <img
+            src={profileImage}
+            alt=""
+            className="m-0 p-0 rounded-circle border border-1"
+            style={{ height: "50px", width: "50px" }}
+          />
+            </div>
+          <div className="col-10">
+            <div className="row m-0 p-0 justify-content-between ">
+              <h6 className="m-0 p-0 w-auto">Hibban</h6>
+              <p className="w-auto m-0 p-0">Monday</p>
+            </div>
+            <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
+          </div>
+        </div>
         <div className="list-item row m-0 p-0 pb-2 pt-2">
             <div className="col-2">
 

@@ -13,10 +13,10 @@ const Sidebar = () => {
           <i className={`sidebar-i fs-3 bi bi-person-circle ${location.pathname==='/dashboard/profile'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  text-decoration-none " to="chatList">
-          <i class={` sidebar-i fs-3 las la-comments ${location.pathname==='/dashboard/chatList'?'active':''}`}></i>
+          <i class={` sidebar-i fs-3 las la-comments ${location.pathname==='/dashboard/chatList'?'active':''} ${location.pathname==='/dashboard/'?'active':''}`}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="contactList">
-          <i className={`sidebar-i fs-3 bi bi-person-lines-fill ${location.pathname==='/dashboard/contactList'?'active':''}`}></i>
+          <i className={`sidebar-i fs-3 bi bi-person-lines-fill ${location.pathname==='/dashboard/contactList'?'active':''} `}></i>
         </Link>
         <Link className="m-0 mt-2 mb-2 p-0 d-flex justify-content-center  " to="callList">
           <i className={`sidebar-i fs-3 bi bi-telephone ${location.pathname==='/dashboard/callList'?'active':''}`}></i>
