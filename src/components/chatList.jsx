@@ -31,7 +31,7 @@ const ChatList = () => {
       </div>
 
       <div className="direct-message-list row m-0 p-0 mt-3">
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -50,7 +50,7 @@ const ChatList = () => {
           </div>
         </div>
         
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -68,7 +68,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -86,7 +86,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -104,7 +104,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -122,7 +122,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -140,7 +140,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -158,7 +158,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -176,7 +176,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -194,7 +194,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img
@@ -212,7 +212,7 @@ const ChatList = () => {
             <p className="m-0 p-0 w-auto overflow-hidden">hi hellohi hellohi hello</p>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 border border-1 border-start-0 border-end-0 border-top-0">
             <div className="col-2">
 
           <img

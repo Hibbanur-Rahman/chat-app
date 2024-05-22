@@ -9,6 +9,9 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    scroll-behavior: smooth !important;
+
 }
 
 .login {
@@ -59,7 +62,10 @@
     }
 
 }
-
+.dashboard {
+    height: 100vh !important;
+    overflow-y: hidden;
+}
 .dashboard-mobile {
     transition: all 0.3s ease-in-out;
 
@@ -288,5 +294,32 @@
     }
     .profile-details{
         margin-top: -40px !important;
+    }
+}
+
+.call-list{
+    .topBar{
+        height: 70px !important;
+    }
+    .call-list-wrapper{
+        margin-top: 70px !important;
+        max-height: 90vh !important;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+    }
+    .call-item {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #b8b7b726;
+            transition: all 0.3s ease-in-out;
+        }
     }
 }
