@@ -3,7 +3,7 @@ import profileImage from "../assets/images/hibban-photo.jpg";
 const ContactList = () => {
   return (
     <div className="contact-list row m-0 p-0 position-relative ">
-      <div className="contact-TopBar pt-3 ">
+      <div className="contact-TopBar pt-3 border border-1 border-top-0 border-start-0 border-end-0">
         <div className="row m-0 p-0 align-items-center justify-content-between">
           <h5 className="m-0 p-0 w-auto">Contacts</h5>
           <div
@@ -29,8 +29,8 @@ const ContactList = () => {
           ></i>
         </div>
       </div>
-      <div className="list-wrapper row m-0 p-0 mt-3">
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+      <div className="list-wrapper row m-0 p-0 ">
+        <div className="list-item row m-0 p-0 pb-2 pt-3 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -44,7 +44,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -58,7 +58,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -72,7 +72,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -86,7 +86,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -100,7 +100,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -114,7 +114,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -128,7 +128,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -142,7 +142,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -156,7 +156,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}
@@ -170,7 +170,7 @@ const ContactList = () => {
                 <i className=" m-0 p-0 bi bi-three-dots-vertical w-auto"></i>
           </div>
         </div>
-        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center">
+        <div className="list-item row m-0 p-0 pb-2 pt-2 align-items-center border border-1 border-top-0 border-start-0 border-end-0">
           <div className="col-2">
             <img
               src={profileImage}

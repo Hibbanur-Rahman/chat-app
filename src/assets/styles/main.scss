@@ -323,3 +323,33 @@
         }
     }
 }
+
+.bookmark{
+    .topBar{
+        height: 70px !important;
+    }
+    .bookmark-wrapper{
+        margin-top: 70px !important;
+        max-height: 90vh !important;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+    } 
+    .bookmark-item{
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: #b8b7b726;
+            transition: all 0.3s ease-in-out;
+        }
+        i{
+            cursor: pointer;
+        }
+    }
+}
