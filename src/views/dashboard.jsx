@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Sidebar from "../components/sidebar";
@@ -9,8 +10,19 @@ import Profile from "../components/profile";
 import Bookmarks from "../components/bookmarks";
 import Setting from "../components/setting";
 import SidebarMobile from "../components/sidebarMobile";
-
+import { initialSocketConnection,disconnectSocket} from "../services/socketService";
 const DashBoard = () => {
+  useEffect(()=>{
+    const token=localStorage.getItem('chat-token');
+    if(token){
+      initialSocketConnection(token);
+    }
+
+    return ()=>{
+      disconnectSocket();
+    }
+  },[]);
+
   return (
     <>
       <div className=" dashboard d-sm-flex d-none row m-0 p-0">

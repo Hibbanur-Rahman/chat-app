@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import VARIABLES from "../../environmentVariables";
 import { toast } from "react-toastify";
+import { initialSocketConnection } from "../services/socketService";
 const Login = () => {
   const [userDetails, setUserDetails] = useState({
     email: "",
@@ -20,7 +21,9 @@ const Login = () => {
       );
       if (response.status === 200) {
         toast.success("login successfully!");
-        localStorage.setItem('chat-token',response.data.token);
+        const {token}=response.data.data;
+        localStorage.setItem('chat-token',token);
+        initialSocketConnection(token);
         navigate('/dashboard')
       }
     } catch (error) {

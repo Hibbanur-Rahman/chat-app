@@ -1,6 +1,17 @@
+import { useState } from "react";
 import profileImage from "../assets/images/hibban-photo.jpg";
+import { useEffect } from "react";
+import { decode } from "jwt-js-decode";
 
 const Profile = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const token = localStorage.getItem("chat-token");
+    if (token) {
+      const user = decode(token).payload.user;
+      setCurrentUser(user);
+    }
+  }, []);
   return (
     <div className="profile row m-0 p-0">
       <div className="topBar row m-0 p-2 pt-3  justify-content-between">
@@ -19,7 +30,9 @@ const Profile = () => {
             style={{ height: "80px", width: "80px" }}
           />
         </div>
-        <h5 className="m-0 p-0 text-center mt-3">Hibbanur Rahman</h5>
+        {currentUser && (
+          <h5 className="m-0 p-0 text-center">{currentUser.username}</h5>
+        )}
         <p className="m-0 p-0 text-secondary text-center">
           Full stack Developer
         </p>
@@ -32,15 +45,24 @@ const Profile = () => {
         </p>
         <div className="row m-0 p-0 mt-3 mb-3 align-items-center ">
           <i className="fs-4  text-secondary  m-0 ps-0 bx bx-user w-auto "></i>
-          <p className="m-0 p-0 text-secondary w-auto">Hibbanur Rahman</p>
+
+          {currentUser && (
+            <p className="m-0 p-0 text-secondary w-auto">
+              {currentUser.username}
+            </p>
+          )}
         </div>
         <div className="row m-0 p-0 mt-3 mb-3 align-items-center ">
           <i className="fs-4  text-secondary  m-0 ps-0 bx bx-message-rounded-dots w-auto "></i>
-          <p className="m-0 p-0 text-secondary w-auto">hibbanrahmanhyt@gmail.com</p>
+          {currentUser && (
+            <p className="m-0 p-0 text-secondary w-auto">{currentUser.email}</p>
+          )}{" "}
         </div>
         <div className="row m-0 p-0 mt-3 mb-3 align-items-center ">
           <i className="fs-4  text-secondary  m-0 ps-0 bi bi-geo-alt w-auto "></i>
-          <p className="m-0 p-0 text-secondary w-auto">Hyderabad,Telangana,India</p>
+          <p className="m-0 p-0 text-secondary w-auto">
+            Hyderabad,Telangana,India
+          </p>
         </div>
       </div>
     </div>

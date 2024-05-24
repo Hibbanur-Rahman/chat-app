@@ -1,5 +1,29 @@
+import { useEffect, useState } from "react";
 import userProfile from "../assets/images/hibban-photo.jpg";
+import { subscribeToChat, sendMessage } from "../services/socketService";
+
 const ChatContainer = () => {
+  const [messages,setMessages]=useState([]);
+  const [input,setInput]=useState('');
+
+  useEffect(()=>{
+    subscribeToChat((err,msg)=>{
+      if(err){
+        return console.error(err);
+      }
+      setMessages((prevMessages)=>[...prevMessages,msg]);
+    });
+  },[]);
+
+  const handleSendMessage=(e)=>{
+    e.preventDefault();
+    if(input.trim()){
+      sendMessage(input);
+      setInput('');
+    }
+  };
+
+
   return (
     <div className="chat-container row m-0 p-0">
       {/**TopBar of chat container */}
@@ -29,9 +53,12 @@ const ChatContainer = () => {
           <i className="w-auto fs-5 bi bi-three-dots-vertical"></i>
         </div>
       </div>
-      {/**Chat items */}
-      <div className="messages-container m-0 p-0 ps-3 pe-3">
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
+       {/**Chat items */}
+
+
+       <div className="messages-container m-0 p-0 ps-3 pe-3">
+
+       <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
           <div className="message-item bg-light w-auto m-0 p-3">
             <p className="m-0 p-0 w-auto">Hi</p>
             <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
@@ -43,91 +70,35 @@ const ChatContainer = () => {
             <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
           </div>
         </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am fine what about you?</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`message-item-wrapper mt-2 mb-2 row m-0 p-0 ${msg.isSender ? 'justify-content-end' : ''}`}
+          >
+            <div className="message-item bg-light w-auto m-0 p-3">
+              <p className="m-0 p-0 w-auto">{msg.text}</p>
+              <p className="time-message m-0 p-0 text-secondary text-end">{msg.time}</p>
+            </div>
           </div>
-        </div>
-        
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am also fine.</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">Hi</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">Hello how are you</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am fine what about you?</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-
-          </div>
-        </div>
-        
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am also fine.</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">Hi</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">Hello how are you</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am fine what about you?</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-
-          </div>
-        </div>
-        
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
-          <div className="message-item bg-light w-auto m-0 p-3">
-            <p className="m-0 p-0 w-auto">i am also fine.</p>
-            <p className="time-message m-0 p-0 text-secondary text-end">3:12pm</p>
-          </div>
-        </div>
-       
+        ))}
       </div>
 
       {/**Send box of chat container */}
-
-      <div className="send-box  row m-0 p-0 pt-3 pb-3 align-items-center">
-        <div className="col-1 d-flex justify-content-between ">
-          <i className="w-auto fs-5 bi bi-three-dots "></i>
+      <div className="send-box row m-0 p-0 pt-3 pb-3 align-items-center">
+        <div className="col-1 d-flex justify-content-between">
+          <i className="w-auto fs-5 bi bi-three-dots"></i>
           <i className="w-auto fs-5 bi bi-emoji-smile"></i>
         </div>
-
         <input
           type="text"
           className="col-md-9 col-lg-10 rounded-2 border border-1 m-0 p-2"
-          placeholder="Type your message....."
+          placeholder="Type your message..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
-        <div className="col-1 d-flex justify-content-between ">
+        <div className="col-1 d-flex justify-content-between">
           <i className="w-auto fs-4 bx bx-microphone"></i>
-          <i className="w-auto fs-4 bx bxs-send"></i>
+          <i className="w-auto fs-4 bx bxs-send" onClick={handleSendMessage}></i>
         </div>
       </div>
     </div>
