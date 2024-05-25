@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,useParams } from "react-router-dom";
 
 import Sidebar from "../components/sidebar";
 import ChatContainer from "./chatContainer";
@@ -23,6 +23,8 @@ const DashBoard = () => {
     }
   },[]);
 
+  const {roomId}=useParams();
+
   return (
     <>
       <div className=" dashboard d-sm-flex d-none row m-0 p-0">
@@ -39,7 +41,10 @@ const DashBoard = () => {
           </Routes>
         </div>
         <div className="col-8 m-0 p-0">
-          <ChatContainer />
+          <Routes>
+            <Route path='chat/:roomId' element={<ChatContainer roomId={roomId}/>}/>
+            <Route path='/' element={<ChatContainer roomId={roomId}/>}/>
+          </Routes>
         </div>
       </div>
       <div className=" dashboard-mobile row m-0 p-0 d-flex d-sm-none">

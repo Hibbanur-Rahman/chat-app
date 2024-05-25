@@ -26,7 +26,7 @@ export const disconnectSocket=()=>{
         socket.disconnect();
 }
 
-export const subscribeToChat=()=>{
+export const subscribeToChat=(cb)=>{
     if(!socket) return;
     socket.on('chat-message',(msg)=>{
         console.log('WebSocket event received!');
@@ -34,7 +34,13 @@ export const subscribeToChat=()=>{
     })
 };
 
-export const sendMessage=(message)=>{
+export const sendMessage=(roomId,message)=>{
     if(socket)
-        socket.emit('chat-message',message);
+        socket.emit('chat-message',{roomId,message});
 };
+
+export const joinRoom=(roomId)=>{
+    if(socket){
+        socket.emit('join-room',roomId);
+    }
+}
