@@ -35,8 +35,10 @@ export const subscribeToChat=(cb)=>{
 };
 
 export const sendMessage=(roomId,message)=>{
-    if(socket)
-        socket.emit('chat-message',{roomId,message});
+    if (socket) {
+        console.log('Sending message:', { roomId, message }); // Add this line to debug
+        socket.emit('chat-message', { roomId, message });
+    }
 };
 
 export const joinRoom=(roomId)=>{

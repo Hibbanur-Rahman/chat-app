@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import userProfile from "../assets/images/hibban-photo.jpg";
 import {
   joinRoom,
   subscribeToChat,
   sendMessage,
 } from "../services/socketService";
+import MessageItem from "../components/messageItem";
 
 const ChatContainer = ({ roomId }) => {
+  const username=useSelector((state)=>state.chat.username);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
   useEffect(() => {
+    console.log(roomId)
     joinRoom(roomId);
     subscribeToChat((err, msg) => {
       if (err) {
@@ -24,7 +28,7 @@ const ChatContainer = ({ roomId }) => {
     e.preventDefault();
 
     if (input.trim()) {
-      sendMessage(input);
+      sendMessage(roomId,input);
       setInput("");
     }
   };
@@ -46,7 +50,7 @@ const ChatContainer = ({ roomId }) => {
             />
           </div>
           <div className="w-auto">
-            <h5 className="m-0 p-0">Hibbanur Rahman</h5>
+            <h5 className="m-0 p-0">{username}</h5>
             <p className="m-0 p-0 text-secondary">online</p>
           </div>
         </div>
@@ -61,7 +65,7 @@ const ChatContainer = ({ roomId }) => {
       {/**Chat items */}
 
       <div className="messages-container m-0 p-0 ps-3 pe-3">
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
+        {/* <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
           <div className="message-item bg-light w-auto m-0 p-3">
             <p className="m-0 p-0 w-auto">Hi</p>
             <p className="time-message m-0 p-0 text-secondary text-end">
@@ -69,14 +73,16 @@ const ChatContainer = ({ roomId }) => {
             </p>
           </div>
         </div>
-        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 justify-content-end">
+        <div className="message-item-wrapper mt-2 mb-2  row  m-0 p-0 ">
           <div className="message-item bg-light w-auto m-0 p-3">
             <p className="m-0 p-0 w-auto">Hello how are you</p>
             <p className="time-message m-0 p-0 text-secondary text-end">
               3:12pm
             </p>
           </div>
-        </div>
+        </div> */}
+        <MessageItem isSender={true} message="Hi" time='3:12 pm'/>
+        <MessageItem isSender={false} message="Hello" time='3:12 pm'/>
         {messages.map((msg, index) => (
           <div
             key={index}
