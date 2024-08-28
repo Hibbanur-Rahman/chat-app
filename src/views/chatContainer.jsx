@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 import userProfile from "../assets/images/hibban-photo.jpg";
 import {
   joinRoom,
@@ -7,14 +8,39 @@ import {
   sendMessage,
 } from "../services/socketService";
 import MessageItem from "../components/messageItem";
+import VARIABLES from "../../environmentVariables";
+// import { fetchMessages } from "../services/messageService";
 
 const ChatContainer = ({ roomId }) => {
-  const username=useSelector((state)=>state.chat.username);
+  const username = useSelector((state) => state.chat.username);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+  const fetchMessages = async () => {
+    try {
+      const response = await axios.get(
+        `${VARIABLES.API_URL_REMOTE}/messages/${roomId}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("chat-token"),
+          },
+        }
+      );
+      if (response.status === 200) {
+        setMessages(response.data.data);
+      }
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    }
+  };
+
   useEffect(() => {
-    console.log(roomId)
+    if (roomId) {
+      fetchMessages();
+    }
+  }, [roomId]);
+  useEffect(() => {
+    console.log(roomId);
     joinRoom(roomId);
     subscribeToChat((err, msg) => {
       if (err) {
@@ -28,7 +54,7 @@ const ChatContainer = ({ roomId }) => {
     e.preventDefault();
 
     if (input.trim()) {
-      sendMessage(roomId,input);
+      sendMessage(roomId, input, username);
       setInput("");
     }
   };
@@ -81,8 +107,8 @@ const ChatContainer = ({ roomId }) => {
             </p>
           </div>
         </div> */}
-        <MessageItem isSender={true} message="Hi" time='3:12 pm'/>
-        <MessageItem isSender={false} message="Hello" time='3:12 pm'/>
+        <MessageItem isSender={true} message="Hi" time="3:12 pm" />
+        <MessageItem isSender={false} message="Hello" time="3:12 pm" />
         {messages.map((msg, index) => (
           <div
             key={index}
